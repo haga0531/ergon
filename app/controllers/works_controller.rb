@@ -1,4 +1,9 @@
 class WorksController < ApplicationController
+	def index
+		@works = Work.all.order(created_at: :desc)
+		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(3).pluck(:work_id))
+	end
+
 	def new
 		@work = Work.new
 	end
