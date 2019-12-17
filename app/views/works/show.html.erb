@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-md-10">
+		<%= link_to(work_path(@work)) do %>
+			      	<%= attachment_image_tag @work, :image, :fill, 680, 390,fallback: "no_image.jpg", size:'680x390', format: 'jpeg' %>
+		<% end %>
+		<span id="work-<%= @work.id %>-like">
+		    <%= render 'shared/likes', work: @work, like: @like %>
+		</span>
+		<h3>サービス名</h3>
+		<%= @work.title %>
+
+		<h3>サービス紹介</h3>
+		<%= @work.description %>
+
+		<h3>紹介動画</h3>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
+	</div>
+	<div class="col-md-2">
+		<i class="far fa-clock"></i>
+		<%= link_to @work.user.name,user_path(@work.user) %>
+	</div>
+</div>

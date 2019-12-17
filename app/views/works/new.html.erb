@@ -1,0 +1,20 @@
+<%= form_for @work,url: {action: 'confirm'} do |f| %>
+
+<p>作品名</p>
+<%= f.text_field :title %>
+
+<p>紹介文</p>
+<%= f.text_area :description %>
+
+<p>アイキャッチ</p>
+<%= f.attachment_field :image %>
+
+<p>App URL</p>
+<%= f.text_field :app_url %>
+
+<p>YouTube URL</p>
+<%= f.text_field :youtube_url %>
+
+<%= f.submit "確認する" %>
+
+<% end %>

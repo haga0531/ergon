@@ -1,0 +1,17 @@
+<%= form_for @work do |f| %>
+  <%= attachment_image_tag @work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %>
+  <%= @work.title %>
+  <%= f.hidden_field :title %>
+  <%= @work.description %>
+  <%= f.hidden_field :description  %>
+  <%= @work.app_url %>
+  <%= f.hidden_field :app_url %>
+  <%= @work.youtube_url %>
+  <%= f.hidden_field :youtube_url %>
+  <div class="actions">
+    <%= f.submit '投稿画面に戻る', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '投稿する' %>
+  </div>
+<% end %>
