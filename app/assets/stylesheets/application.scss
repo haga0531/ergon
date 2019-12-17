@@ -17,6 +17,9 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+body{
+  background-color:#f9f6f7;
+}
 .content-center{
   margin-right: auto;
   margin-left : auto;
@@ -34,4 +37,9 @@
 
 .today:hover{
   background-color: #f9c500;
+}
+
+.description{
+  width:620px;
+  display:block;
 }

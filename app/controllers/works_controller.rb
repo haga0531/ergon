@@ -33,6 +33,19 @@ class WorksController < ApplicationController
 		@like = Like.find_by(user_id: current_user.id, work_id: params[:id]) if user_signed_in?
 	end
 
+	def edit
+		@work = Work.find(params[:id])
+	end
+
+	def update
+		@work = Work.find(params[:id])
+		if @work.update(work_params)
+			redirect_to work_path(@work)
+		else
+			render :edit
+		end
+	end
+
 
 	private
 	def work_params
