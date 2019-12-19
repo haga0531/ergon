@@ -37,8 +37,7 @@
       </div>
     </nav>
     <div class="container content-center">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <%= render 'shared/flash' %>
       <%= yield %>
     </div>
   </body>

@@ -15,6 +15,9 @@
 <p>YouTube URL</p>
 <%= f.text_field :youtube_url %>
 
+<p>カテゴリー</p>
+<%= f.text_field :tag_list, value: @work.tag_list.join(',') %>
+
 <%= f.submit "確認する" %>
 
 <% end %>

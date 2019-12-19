@@ -1,35 +1,44 @@
-<h2>ランキング</h2>
-<table class="table">
-	<% @all_ranks.each do |work| %>
-	  <tbody>
-	    <tr>
-	      <th scope="row">
-	      	<%= link_to(work_path(work)) do %>
-	      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
-	      	<%= work.title %>
-	      	<p>
-			   <%= work.created_at.strftime('%Y/%m/%d') %>
-			</p>
-	      	<% end %>
-	      </th>
-	    </tr>
-	  </tbody>
-  	<% end %>
-</table>
+<% unless params[:tag_name] %>
+	<h2>ランキング</h2>
+	<table class="table">
+		<% @all_ranks.each do |work| %>
+		  <tbody>
+		    <tr>
+		      <th scope="row">
+		      	<%= link_to(work_path(work)) do %>
+		      	<%= attachment_image_tag work, :image, :fill, 300, 154,fallback: "no_image.jpg", size:'300x154', format: 'jpeg' %><br>
+		      	<%= work.title %>
+		      	<p>
+				   <%= work.created_at.strftime('%Y/%m/%d') %>
+				</p>
+				<%= render 'works/tag_list',tag_list: work.tag_list %>
+		      	<% end %>
+		      </th>
+		    </tr>
+		  </tbody>
+	  	<% end %>
+	</table>
+<% end %>
 
-<h2>新規サービス</h2>
+<% unless params[:tag_name] %>
+	<h2>新規サービス</h2>
+<% else %>
+	<h2><%= params[:tag_name] %></h2>
+<% end %>
+
 <table class="table">
 	<% @works.each do |work| %>
 	  <tbody>
 	    <tr>
 	      <th scope="row">
 	      	<%= link_to(work_path(work)) do %>
-	      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
+	      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'300x154', format: 'jpeg' %><br>
 	      	<%= work.title %>
+	      	<% end %>
 	      	<p>
 			   <%= work.created_at.strftime('%Y/%m/%d') %>
 			</p>
-	      	<% end %>
+			<%= render 'works/tag_list',tag_list: work.tag_list %>
 	      </th>
 	    </tr>
 	  </tbody>

@@ -8,6 +8,8 @@
   <%= f.hidden_field :app_url %>
   <%= @work.youtube_url %>
   <%= f.hidden_field :youtube_url %>
+  <%= @work.tag_list.join(',') %>
+  <%= f.hidden_field :tag_list,value: @work.tag_list.join(',') %>
   <div class="actions">
     <%= f.submit '投稿画面に戻る', name: 'back' %>
   </div>

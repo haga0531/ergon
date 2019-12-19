@@ -1,5 +1,13 @@
 <div class="row">
 	<div class="col-md-10">
+		<span>
+			<%= render 'works/tag_list',tag_list: @work.tag_list %>
+		</span>
+		<button class="raised"><i class="fas fa-external-link-alt"></i>
+			<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
+		</button>
+		<br>
+		<br>
 		<div>
 			<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
 		</div>
@@ -17,8 +25,22 @@
 			<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 
-		<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
+		<h4>コメント</h4>
+		<% @comments.each do |comment| %>
+			<div>
+				<a href="/users/<%= @work.user.id %>"><%= comment.user.name %></a>
+				<%= comment.content %>
+				<hr>
+			</div>
+		<% end %>
+
+		<%= form_for [@work,@comment] do |f| %>
+			<%= f.text_field :content %>
+
+			<%= f.submit "コメントする" %>
+		<% end %>
 	</div>
+
 	<div class="col-md-2">
 		<i class="far fa-clock"></i>
 		<span>

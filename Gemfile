@@ -10,6 +10,9 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'rinku'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'

@@ -2,6 +2,9 @@ class WorksController < ApplicationController
 	def index
 		@works = Work.all.order(created_at: :desc)
 		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(3).pluck(:work_id))
+		if params[:tag_name]
+			@works = @works.tagged_with("#{params[:tag_name]}")
+		end
 	end
 
 	def new
@@ -31,6 +34,8 @@ class WorksController < ApplicationController
 	def show
 		@work = Work.find(params[:id])
 		@like = Like.find_by(user_id: current_user.id, work_id: params[:id]) if user_signed_in?
+		@comment = Comment.new
+		@comments = @work.comments
 	end
 
 	def edit
@@ -49,6 +54,6 @@ class WorksController < ApplicationController
 
 	private
 	def work_params
-		params.require(:work).permit(:title,:description,:app_url,:image,:youtube_url)
+		params.require(:work).permit(:title,:description,:app_url,:image,:youtube_url, :tag_list)
 	end
 end
