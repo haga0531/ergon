@@ -1,23 +1,45 @@
-<%= form_for @work,url: {action: 'confirm'} do |f| %>
+<div class="signPage">
+  	<div class="text-align">
+  		<h2>投稿する</h2>
 
-<p>作品名</p>
-<%= f.text_field :title %>
+		<%= form_for @work,url: {action: 'confirm'} do |f| %>
 
-<p>紹介文</p>
-<%= f.text_area :description %>
+		<div class="field">
+			<p>作品名</p>
+			<%= f.text_field :title %>
+		</div>
 
-<p>アイキャッチ</p>
-<%= f.attachment_field :image %>
+		<div class="field">
+			<p>紹介文</p>
+			<%= f.text_area :description %>
+		</div>
 
-<p>App URL</p>
-<%= f.text_field :app_url %>
+		<!-- <div class="field"> -->
+			<p>トップ画像</p>
+			<span class="btn btn-info btn-file">
+				画像を選択<%= f.attachment_field :image %>
+			</span>
+		<!-- </div> -->
 
-<p>YouTube URL</p>
-<%= f.text_field :youtube_url %>
+		<div class="field">
+			<p>App URL</p>
+			<%= f.text_field :app_url %>
+		</div>
 
-<p>カテゴリー</p>
-<%= f.text_field :tag_list, value: @work.tag_list.join(',') %>
+		<div class="field">
+			<p>YouTube URL</p>
+			<%= f.text_field :youtube_url %>
+		</div>
 
-<%= f.submit "確認する" %>
+		<div class="field">
+			<p>カテゴリー</p>
+			<%= f.text_field :tag_list, value: @work.tag_list.join(',') %>
+		</div>
 
-<% end %>
+		<div class="actions">
+			<%= f.submit "確認する",class: "btn btn-sign" %>
+		</div>
+
+		<% end %>
+	</div>
+</div>

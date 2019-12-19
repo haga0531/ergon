@@ -88,14 +88,30 @@ a:hover{
   padding-left: 40px;
 }
 
+.field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2px 0;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+.field textarea:focus {
+  border-color: #da3c41;
+}
+.field textarea {
+  padding-left: 40px;
+}
+
 
 
 /* deviseメッセージ */
 .flash{
   color:white;
   text-align:center;
-  width: 500px;
-  border-radius: 8px;
+  width: 100%;
 }
 .flash_alert{
   background-color:#ff9d76;
@@ -171,4 +187,49 @@ a:hover{
 
 .user_posted{
   margin-top:30px;
+}
+
+
+/* 画像投稿ボタン */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+
+/* 確認ページボタン */
+.btn-left{
+  color:white;
+  background-color:#5f6769;
+}
+.btn-right{
+  color:white;
+  background-color:#ff971d;
+}
+
+
+/* 確認ページfield */
+.confirm-field{
+  background-color:white;
+  border-radius:2px;
+  padding:5px 10px;
+  width:100%;
 }

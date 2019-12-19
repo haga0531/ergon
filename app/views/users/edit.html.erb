@@ -1,12 +1,27 @@
-<%= form_for @user do |f| %>
+<div class="signPage">
+  	<div class="text-align">
+  		<h2>編集する</h2>
+			<%= form_for @user do |f| %>
 
-<p>ニックネーム</p>
-<%= f.text_field :name %>
-<p>プロフィール</p>
-<%= f.text_field :introduction %>
-<p>アイコン</p>
-<%= f.attachment_field :image %>
+			<div class="field">
+				<p>ニックネーム</p>
+				<%= f.text_field :name %>
+			</div>
 
-<%= f.submit "更新する" %>
+			<div class="field">
+				<p>プロフィール</p>
+				<%= f.text_field :introduction %>
+			</div>
 
-<% end %>
+			<div class="field">
+				<p>アイコン</p>
+				<span class="btn btn-info btn-file">
+					画像を選択<%= f.attachment_field :image %>
+				</span>
+			</div>
+
+			<%= f.submit "更新する",class: "btn btn-sign" %>
+
+			<% end %>
+	</div>
+</div>
