@@ -1,7 +1,11 @@
 <%= form_for @user do |f| %>
 
-<p>名前</p>
+<p>ニックネーム</p>
 <%= f.text_field :name %>
+<p>プロフィール</p>
+<%= f.text_field :introduction %>
+<p>アイコン</p>
+<%= f.attachment_field :image %>
 
 <%= f.submit "更新する" %>
 

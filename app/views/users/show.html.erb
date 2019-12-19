@@ -1,21 +1,28 @@
-<h3><%=link_to current_user.name, edit_user_path(current_user)%></h3>
-
-<%=link_to "作品を投稿する",new_work_path %>
-<%=link_to "プロフィール編集",edit_user_path %>
-
-<h3>投稿サービス</h3>
-
-<table class="table">
-	<% @works.each do |work| %>
-	  <tbody>
-	    <tr>
-	      <th scope="row">
-	      	<%= link_to(work_path(work)) do %>
-	      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
-	      	<%= work.title %>
-	      	<% end %>
-	      </th>
-	    </tr>
-	  </tbody>
-  	<% end %>
-</table>
+<div class="user_show">
+	<div class="user_profile">
+		<%= attachment_image_tag @user, :image, :fill, 105, 105,fallback: "no_image.jpg", size:'105x105', format: 'jpeg',class: "rounded-circle" %>
+		<p class="user_name"><%= current_user.name %></p>
+		<P class="user_introduction"><%= @user.introduction %></P>
+		<%=link_to edit_user_path(current_user) do %>
+			<span class="raised user_edit"><i class="fas fa-user-edit"></i></span>
+		<% end %>
+	</div>
+	<hr>
+	<div class="user_posted">
+		<h3 class="">投稿サービス</h3>
+		<table class="table">
+			<% @works.each do |work| %>
+			  <tbody>
+			    <tr>
+			      <th scope="row">
+			      	<%= link_to(work_path(work)) do %>
+			      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
+			      	<%= work.title %>
+			      	<% end %>
+			      </th>
+			    </tr>
+			  </tbody>
+		  	<% end %>
+		</table>
+	</div>
+</div>
