@@ -7,12 +7,12 @@
 
       <div class="field">
         <p>ニックネーム</p>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => "ヤマダタロウ"  %>
       </div>
 
       <div class="field">
         <p>メールアドレス</p>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "example.com"  %>
       </div>
 
       <div class="field">

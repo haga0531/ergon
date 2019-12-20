@@ -6,12 +6,12 @@
 
 		<div class="field">
 			<p>作品名</p>
-			<%= f.text_field :title %>
+			<%= f.text_field :title, :placeholder => "例) Twitter EX"  %>
 		</div>
 
 		<div class="field">
 			<p>紹介文</p>
-			<%= f.text_area :description %>
+			<%= f.text_area :description, :placeholder => "例) Twitterにストーリー機能を追加しました"  %>
 		</div>
 
 		<!-- <div class="field"> -->
@@ -23,17 +23,17 @@
 
 		<div class="field">
 			<p>App URL</p>
-			<%= f.text_field :app_url %>
+			<%= f.text_field :app_url, :placeholder => "例) https://example.com"  %>
 		</div>
 
 		<div class="field">
 			<p>YouTube URL</p>
-			<%= f.text_field :youtube_url %>
+			<%= f.text_field :youtube_url, :placeholder => "例) https://www.youtube.com/ ..."  %>
 		</div>
 
 		<div class="field">
-			<p>カテゴリー</p>
-			<%= f.text_field :tag_list, value: @work.tag_list.join(',') %>
+			<p>使用言語(ローマ字のカンマ「,」区切りで入力してください)</p>
+			<%= f.text_field :tag_list, value: @work.tag_list.join(','), :placeholder => "例) Rails,React,..."  %>
 		</div>
 
 		<div class="actions">
