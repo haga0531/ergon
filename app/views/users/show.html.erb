@@ -9,20 +9,58 @@
 	</div>
 	<hr>
 	<div class="user_posted">
-		<h3 class="">投稿サービス</h3>
-		<table class="table">
-			<% @works.each do |work| %>
-			  <tbody>
-			    <tr>
-			      <th scope="row">
-			      	<%= link_to(work_path(work)) do %>
-			      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
-			      	<%= work.title %>
-			      	<% end %>
-			      </th>
-			    </tr>
-			  </tbody>
-		  	<% end %>
-		</table>
+		<!-- タブメニュー
+		 activeクラスに、クリック済のデザインを設定したcssを指定 -->
+		<ul class="tab clearfix">
+		  <li class="active">投稿サービス</li>
+		  <li>コメント</li>
+		  <li>いいね</li>
+		</ul>
+		<!-- コンテンツ
+		 全体を非表示にし、showクラスが付いたコンテンツのみ表示 -->
+		<div class="area">
+		  <ul class="show">
+		    <div class="user_posted">
+				<table class="table">
+					<% @works.each do |work| %>
+					  <tbody>
+					    <tr>
+					      <th scope="row">
+					      	<%= link_to(work_path(work)) do %>
+					      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
+					      	<%= work.title %>
+					      	<% end %>
+					      </th>
+					    </tr>
+					  </tbody>
+				  	<% end %>
+				</table>
+			</div>
+		  </ul>
+		  <ul>
+		  </ul>
+		  <ul>
+		  	<div class="user_posted">
+				<table class="table">
+					<% @likes.each do |like| %>
+					  <tbody>
+					    <tr>
+					      <th scope="row">
+					      	<% work = Work.find_by(id: like.work_id) %>
+					      	<%= link_to(work_path(work)) do %>
+					      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'200x200', format: 'jpeg' %><br>
+					      	<%= work.title %>
+					      	<% end %>
+					      </th>
+					    </tr>
+					  </tbody>
+				  	<% end %>
+				</table>
+			</div>
+		  </ul>
+		</div>
 	</div>
 </div>
+
+
+
