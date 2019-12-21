@@ -23,13 +23,9 @@
   margin:0;
   padding:0;
 }
-@font-face{
-  font-family: "myfont";
-  src: url("fonts/mplus-2p-bold.otf") format("opentype");
-}
+
 body{
   background-color:#f9f6f7;
-  font-family: "myfont";
 }
 
 
@@ -149,6 +145,7 @@ ul li {
   margin:0 auto;
   width:1024px;
   padding-top: 35px;
+  padding-bottom: 100px;
 }
 
 
@@ -231,15 +228,16 @@ ul li {
 
 /* いいねボタン */
 .today{
-  display: inline-block;
+  display: inline;
   text-decoration: none;
   text-align: center;
-  border-radius: 5px;
-  margin: 10px;
+  border-radius: 50%;
+  margin-top: 30px;
   color:red;
+  padding: 10px 10px;
 }
 .today:hover{
-  background-color: #f9c500;
+  opacity: .5;
 }
 .description{
   width:620px;
@@ -351,12 +349,7 @@ input[readonly] {
 }
 
 
-
-
-
-
-
-
+/* タブ機能 */
 .tab li {
   color: #333;
   float: left;
@@ -375,4 +368,69 @@ input[readonly] {
 }
 .area ul.show {
   display: block;
+}
+
+
+/*--- comments ---*/
+.comments_area{
+  padding:10px 0;
+}
+
+.comment_field{
+  width: 75%;
+  height: 40px;
+  margin: 2px 0;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+.comment_field:focus {
+  border-color: #da3c41;
+}
+
+.comment-image{
+  width: 30px;
+  margin-right:20px;
+}
+
+.comment-frame{
+  position: relative;
+  display: inline-block;
+  margin: .5em 0 .5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 10px;
+}
+.comment-frame:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.commentDelete,commentTime{
+  font-size:10px;
+  text-decoration:none;
+  padding-left:0 5px;
+}
+
+
+/* Work Show */
+.workShowH3{
+  padding-top:25px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.workShowYoutube{
+  margin-bottom:50px;
 }

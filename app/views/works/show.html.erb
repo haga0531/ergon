@@ -1,44 +1,57 @@
 <div class="row">
-	<div class="col-md-10">
-		<span>
-			<%= render 'works/tag_list',tag_list: @work.tag_list %>
-		</span>
-		<button class="raised"><i class="fas fa-external-link-alt"></i>
+	<div class="col-md-1">
+		<button class="raised rounded-circle"><i class="fas fa-external-link-alt"></i>
 			<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
 		</button>
-		<br>
-		<br>
+		<span id="work-<%= @work.id %>-like1">
+		    <%= render 'shared/likes', work: @work, like: @like %>
+		</span>
+	</div>
+	<div class="col-md-9">
 		<div>
 			<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
 		</div>
-		<span id="work-<%= @work.id %>-like">
-		    <%= render 'shared/likes', work: @work, like: @like %>
+		<h3 class="workShowH3"><%= @work.title %></h3>
+		<span>
+			<%= render 'works/tag_list',tag_list: @work.tag_list %>
 		</span>
-		<h3>サービス名</h3>
-		<p><%= @work.title %></p>
 
-		<h3>サービス紹介</h3>
-		<p class="description"><%= @work.description %></p>
-
-		<h3><i class="fab fa-youtube"></i> 紹介動画</h3>
-		<div>
-			<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<div class="workShowDescription">
+			<h3 class="workShowH3">サービス紹介</h3>
+			<p class="description"><%= @work.description %></p>
 		</div>
 
-		<h4>コメント</h4>
-		<% @comments.each do |comment| %>
+		<div class="workShowYoutube">
+			<h3 class="workShowH3"><i class="fab fa-youtube"></i> 紹介動画</h3>
 			<div>
-				<a href="/users/<%= @work.user.id %>"><%= comment.user.name %></a>
-				<%= comment.content %>
-				<hr>
+				<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-		<% end %>
+		</div>
+		<hr>
+		<div class="comments_area">
+			<h4>コメント</h4>
+			<% @comments.each do |comment| %>
+				<div>
+					<a href="/users/<%= @work.user.id %>">
+						<%= attachment_image_tag comment.user, :image, :fill, 40, 40,fallback: "no_image_man.jpg", size:'40X40', format: 'jpeg',class: "rounded-circle comment-image" %>
+					</a>
+					<p class="comment-frame">
+						<%= comment.content %>
+					</p>
+					<small class="commentDelete">
+							<%= link_to "削除",work_comment_path(comment.work.id, comment.id),method: :delete, :style=>"color:gray;" %>
+					</small><br>
+					<small class="commentTime">
+						<%= comment.created_at.strftime('%Y/%m/%d/ %H:%M') %>
+					</small>
+				</div>
+			<% end %>
+			<%= form_for [@work,@comment] do |f| %>
+				<%= f.text_area :content, class: "comment_field" %><br>
 
-		<%= form_for [@work,@comment] do |f| %>
-			<%= f.text_field :content %>
-
-			<%= f.submit "コメントする" %>
-		<% end %>
+				<%= f.submit "コメントする",class: "btn btn-info" %>
+			<% end %>
+		</div>
 	</div>
 
 	<div class="col-md-2">

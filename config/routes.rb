@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   		post 'confirm'
   	end
   	resources :likes, only: [:create]
-    resources :comments,only: [:create]
+    resources :comments,only: [:create,:destroy]
   end
   delete '/works/:work_id/likes/:id', to: 'likes#destroy' ,as: :like
 end
