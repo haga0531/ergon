@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     	@user = User.find(params[:id])
         @works = @user.works
         @likes = Like.where(user_id: @user.id)
+        @comments = Comment.where(user_id: @user.id)
     end
 
     def edit
