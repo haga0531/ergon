@@ -3,36 +3,37 @@
   		<h2>投稿する</h2>
 
 		<%= form_for @work,url: {action: 'confirm'} do |f| %>
+		<%= render 'shared/error_messages', model: f.object %>
 
 		<div class="field">
-			<p>作品名</p>
+			<p>作品名 <span class="required badge">必須</span></p>
 			<%= f.text_field :title, :placeholder => "例) Twitter EX"  %>
 		</div>
 
 		<div class="field">
-			<p>紹介文</p>
+			<p>紹介文 <span class="required badge">必須</span></p>
 			<%= f.text_area :description, :placeholder => "例) Twitterにストーリー機能を追加しました"  %>
 		</div>
 
 		<!-- <div class="field"> -->
-			<p>トップ画像</p>
+			<p>トップ画像 <span class="required badge">必須</span></p>
 			<span class="btn btn-info btn-file">
 				画像を選択<%= f.attachment_field :image %>
 			</span>
 		<!-- </div> -->
 
 		<div class="field">
-			<p>App URL</p>
+			<p>App URL <span class="required badge">必須</span></p>
 			<%= f.text_field :app_url, :placeholder => "例) https://example.com"  %>
 		</div>
 
 		<div class="field">
-			<p>YouTube URL</p>
+			<p>YouTube URL <span class="optional badge">任意</span></p>
 			<%= f.text_field :youtube_url, :placeholder => "例) https://www.youtube.com/ ..."  %>
 		</div>
 
 		<div class="field">
-			<p>使用言語(ローマ字のカンマ「,」区切りで入力してください)</p>
+			<p>使用技術 <span class="optional badge">任意</span>(ローマ字のカンマ「,」区切りで入力してください)</p>
 			<%= f.text_field :tag_list, value: @work.tag_list.join(','), :placeholder => "例) Rails,React,..."  %>
 		</div>
 

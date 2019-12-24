@@ -1,24 +1,63 @@
 <template>
-  <div id="app">
-    <router-link to="/">新着</router-link> |
-    <router-link to="/rankPage">ランキング</router-link>
-    <router-view/>
+  <div class="example">
+    <div class="tabs">
+      <TabItem
+        v-for="item in list"
+        v-bind="item" :key="item.id"
+        v-model="currentId"/>
+    </div>
+    <div class="contents">
+      <transition>
+        <section class="item" :key="currentId">
+          {{ current.content }}
+        </section>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
+import TabItem from './TabItem.vue'
 export default {
-  data: function () {
+  components: { TabItem },
+  data() {
     return {
-      message: "Hello Vue!"
+      currentId: 1,
+      list: [
+        { id: 1, label: '投稿サービス', content: 'コンテンツ1' },
+        { id: 2, label: 'コメント', content: 'コンテンツ2' },
+        { id: 3, label: 'いいね', content: 'コンテンツ3' }
+      ]
+    }
+  },
+  computed: {
+    current() {
+      return this.list.find(el => el.id === this.currentId) || {}
     }
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+.contents {
+  position: relative;
+  overflow: hidden;
+  width: 960px;
+}
+.item {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+/* トランジション用スタイル */
+.v-leave-active {
+  position: absolute;
+}
+.v-enter {
+  transform: translateX(-100%);
+}
+.v-leave-to {
+  transform: translateX(100%);
 }
 </style>

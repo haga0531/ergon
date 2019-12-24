@@ -1,17 +1,19 @@
 <div class="row">
 	<div class="col-md-1">
-		<button class="raised rounded-circle"><i class="fas fa-external-link-alt"></i>
-			<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
-		</button>
 		<span id="work-<%= @work.id %>-like1">
 		    <%= render 'shared/likes', work: @work, like: @like %>
 		</span>
 	</div>
 	<div class="col-md-9">
+		<button class="raised"><i class="fas fa-external-link-alt"></i>
+				<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
+		</button>
 		<div>
 			<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
 		</div>
-		<h3 class="workShowH3"><%= @work.title %></h3>
+		<dic class="clearfix">
+			<h3 class="workShowH3 left"><%= @work.title %></h3>
+		</dic>
 		<span>
 			<%= render 'works/tag_list',tag_list: @work.tag_list %>
 		</span>

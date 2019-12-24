@@ -1,5 +1,5 @@
 <% unless params[:tag_name] %>
-	<h2>ランキング</h2>
+	<h2>人気サービス</h2>
 	<table class="table">
 		<% @all_ranks.each do |work| %>
 		  <tbody>
@@ -45,7 +45,9 @@
   	<% end %>
 </table>
 
-<div id="app"></div>
-
-<%= javascript_pack_tag 'application' %>
-<%= stylesheet_pack_tag 'application' %>
+<% unless params[:tag_name] %>
+	<h2>使用技術</h2>
+	<span class="badge badge-primary mr-1 p-1">
+		<%=link_to "# Rails" ,works_path(tag_name: "rails"),class: "text-white" %>
+	</span>
+<% end %>
