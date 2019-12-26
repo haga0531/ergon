@@ -7,7 +7,7 @@ class LikesController < ApplicationController
 
   def destroy
     @work = Work.find(params[:work_id])
-    @like = Like.find_by(user_id: current_user.id, work_id: params[:work_id])
+    @like = Like.find_by(id: params[:id],user_id: current_user.id, work_id: params[:work_id])
     @like.destroy
     @work.reload
   end

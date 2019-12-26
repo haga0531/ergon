@@ -1,20 +1,35 @@
-<%= form_for @work do |f| %>
+<div class="signPage">
+  	<div class="text-align">
+  		<h2>編集する</h2>
+		<%= form_for @work do |f| %>
 
-<p>作品名</p>
-<%= f.text_field :title %>
+		<div class="field">
+			<p>作品名</p>
+			<%= f.text_field :title %>
+		</div>
 
-<p>紹介文</p>
-<%= f.text_area :description %>
+		<div class="field">
+			<p>紹介文</p>
+			<%= f.text_area :description %>
+		</div>
 
-<p>アイキャッチ</p>
-<%= f.attachment_field :image %>
+		<p>トップ画像</p>
+		<span class="btn btn-info btn-file">
+			画像を選択<%= f.attachment_field :image %>
+		</span>
 
-<p>App URL</p>
-<%= f.text_field :app_url %>
+		<div class="field">
+			<p>App URL</p>
+			<%= f.text_field :app_url %>
+		</div>
 
-<p>YouTube URL</p>
-<%= f.text_field :youtube_url %>
+		<div class="field">
+			<p>YouTube URL</p>
+			<%= f.text_field :youtube_url %>
+		</div>
 
-<%= f.submit "更新する" %>
+		<%= f.submit "更新する",class: "btn btn-sign" %>
 
-<% end %>
+		<% end %>
+	</div>
+</div>

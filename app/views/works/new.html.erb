@@ -2,7 +2,7 @@
   	<div class="text-align">
   		<h2>投稿する</h2>
 
-		<%= form_for @work,url: {action: 'confirm'} do |f| %>
+		<%= form_for @work do |f| %>
 		<%= render 'shared/error_messages', model: f.object %>
 
 		<div class="field">
@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="actions">
-			<%= f.submit "確認する",class: "btn btn-sign" %>
+			<%= f.submit "投稿する",class: "btn btn-sign", data: { confirm: "投稿してもよろしいですか？(あとで編集できます)"}  %>
 		</div>
 
 		<% end %>

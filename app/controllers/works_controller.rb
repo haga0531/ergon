@@ -1,20 +1,21 @@
 class WorksController < ApplicationController
 	def index
 		@works = Work.all.order(created_at: :desc)
-		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(3).pluck(:work_id))
+		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
 		if params[:tag_name]
 			@works = @works.tagged_with("#{params[:tag_name]}")
 		end
+		@like = Like.find_by(user_id: current_user.id, work_id: params[:id]) if user_signed_in?
 	end
 
 	def new
 		@work = Work.new
 	end
 
-	def confirm
-		@work = current_user.works.build(work_params)
-		render :new if @work.invalid?
-	end
+	# def confirm
+	# 	@work = current_user.works.build(work_params)
+	# 	render :new if @work.invalid?
+	# end
 
 	def create
 		# @work = Work.new(work_params)

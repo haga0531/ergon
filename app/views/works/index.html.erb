@@ -1,53 +1,127 @@
-<% unless params[:tag_name] %>
-	<h2>人気サービス</h2>
+<div class="row">
+	<div class="col-md-10">
+	<% unless params[:tag_name] %>
+		<h2>人気サービス</h2>
+		<table class="table">
+			<% @all_ranks.each_with_index do |work,i| %>
+			<% if i == 1 %>
+			      	<div class="work_box1">
+				      	<%= link_to(work_path(work)) do %>
+				      	<%= attachment_image_tag work, :image, :fill, 260, 154,fallback: "no_image.jpg", size:'260x154', format: 'jpeg' %>
+				      	<span id="work-<%= work.id %>-like1" class="like">
+							    <%= render 'shared/likes', work: work, like: @like %>
+						</span>
+			　	      	<div class="work_box_item">
+					      	<strong><%= work.title %></strong>
+					      	<p>
+							   <%= work.created_at.strftime('%Y/%m/%d') %>
+							</p>
+						</div>
+				      	<% end %>
+				    </div>
+			<% else %>
+					<div class="work_box">
+				      	<%= link_to(work_path(work)) do %>
+				      	<%= attachment_image_tag work, :image, :fill, 230, 154,fallback: "no_image.jpg", size:'230x154', format: 'jpeg' %>
+				      	<span id="work-<%= work.id %>-like1" class="like">
+							    <%= render 'shared/likes', work: work, like: @like %>
+						</span>
+			　	      	<div class="work_box_item">
+					      	<strong><%= work.title %></strong>
+					      	<p>
+							   <%= work.created_at.strftime('%Y/%m/%d') %>
+							</p>
+						</div>
+				      	<% end %>
+				    </div>
+		  	<% end %>
+		  	<% end %>
+		</table>
+	<% end %>
+	<hr>
+	<% unless params[:tag_name] %>
+		<h2>新規サービス</h2>
+	<% else %>
+		<h2><%= params[:tag_name] %></h2>
+	<% end %>
+
 	<table class="table">
-		<% @all_ranks.each do |work| %>
-		  <tbody>
-		    <tr>
-		      <th scope="row">
-		      	<%= link_to(work_path(work)) do %>
-		      	<%= attachment_image_tag work, :image, :fill, 300, 154,fallback: "no_image.jpg", size:'300x154', format: 'jpeg' %><br>
-		      	<%= work.title %>
-		      	<p>
-				   <%= work.created_at.strftime('%Y/%m/%d') %>
-				</p>
-				<%= render 'works/tag_list',tag_list: work.tag_list %>
-		      	<% end %>
-		      </th>
-		    </tr>
-		  </tbody>
+		<% @works.each do |work| %>
+		      	<div class="work_box">
+			      	<%= link_to(work_path(work)) do %>
+			      	<%= attachment_image_tag work, :image, :fill, 230, 154,fallback: "no_image.jpg", size:'230x154', format: 'jpeg' %><br>
+			      	<div class="work_box_item">
+				      	<strong><%= work.title %></strong>
+				      	<p>
+						   <%= work.created_at.strftime('%Y/%m/%d') %>
+						</p>
+					</div>
+					<% end %>
+				</div>
 	  	<% end %>
 	</table>
-<% end %>
+	</div>
 
-<% unless params[:tag_name] %>
-	<h2>新規サービス</h2>
-<% else %>
-	<h2><%= params[:tag_name] %></h2>
-<% end %>
-
-<table class="table">
-	<% @works.each do |work| %>
-	  <tbody>
-	    <tr>
-	      <th scope="row">
-	      	<%= link_to(work_path(work)) do %>
-	      	<%= attachment_image_tag work, :image, :fill, 200, 200,fallback: "no_image.jpg", size:'300x154', format: 'jpeg' %><br>
-	      	<%= work.title %>
-	      	<% end %>
-	      	<p>
-			   <%= work.created_at.strftime('%Y/%m/%d') %>
-			</p>
-			<%= render 'works/tag_list',tag_list: work.tag_list %>
-	      </th>
-	    </tr>
-	  </tbody>
-  	<% end %>
-</table>
-
-<% unless params[:tag_name] %>
-	<h2>使用技術</h2>
-	<span class="badge badge-primary mr-1 p-1">
-		<%=link_to "# Rails" ,works_path(tag_name: "rails"),class: "text-white" %>
-	</span>
-<% end %>
+	<div class="col-md-2">
+		<% unless params[:tag_name] %>
+			<h2>使用技術</h2>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Rails" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Vue" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# React" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Angular" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# PHP" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Laravel" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Javascript" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# AWS" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Firebase" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Swift" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Java" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Kotlin" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Go" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Rust" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Scala" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# Python" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# C/C++" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# C#" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+			<span class="badge badge-background mr-1 p-1">
+				<%=link_to "# R" ,works_path(tag_name: "rails"),class: "text-white" %>
+			</span>
+		<% end %>
+	</div>
+</div>
