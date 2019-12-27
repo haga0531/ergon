@@ -1,3 +1,8 @@
+<% unless user_signed_in? %>
+<div class="mv">
+	<%= link_to "Ergonをはじめる",new_user_registration_path, class: "top_btn" %>
+</div>
+<% end %>
 <div class="row">
 	<div class="col-md-10">
 	<% unless params[:tag_name] %>
