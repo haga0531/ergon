@@ -3,6 +3,17 @@
 		<span id="work-<%= @work.id %>-like1">
 		    <%= render 'shared/likes', work: @work, like: @like %>
 		</span>
+		<div id='sosyal'>
+		   <%= link_to  "https://twitter.com/share?url=#{request.url}&text=%20%23Ergon%20#{@work.title}", class: 'twitter', title: 'Twitter', target: '_blank' do%>
+		   	<i class="fab fa-twitter"></i>
+		   <% end %>
+		   <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=%20%23Ergon%20#{@work.title}", class: 'facebook', title: 'Facebook', target: '_blank' do%>
+		   	<i class="fab fa-facebook-f"></i>
+		   <% end %>
+		   <%= link_to "http://slackbutton.herokuapp.com/post/new/?url=#{request.url}&text=%20%23Ergon%20#{@work.title}", class: 'slack', title: 'Slack', target: '_blank' do%>
+		   	<%=image_tag "slack.svg",:size =>'20x20' %>
+		   <% end %>
+		</div>
 	</div>
 	<div class="col-md-9">
 		<button class="raised"><i class="fas fa-external-link-alt"></i>
@@ -62,6 +73,9 @@
 		   <%= @work.created_at.strftime('%Y/%m/%d') %>
 		</span>
 		<P>作成者 : <%= link_to @work.user.name,user_path(@work.user) %></P>
+		<% if @work.user == current_user %>
 		<%= link_to "投稿を編集",edit_work_path(@work) %>
+		<%= link_to "投稿を削除",work_path(@work),method: :delete, data: { confirm: "本当に削除しますか？"} %>
+		<% end %>
 	</div>
 </div>

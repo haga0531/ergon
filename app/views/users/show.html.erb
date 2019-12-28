@@ -3,8 +3,10 @@
 		<%= attachment_image_tag @user, :image, :fill, 105, 105,fallback: "no_image_man.jpg", size:'105x105', format: 'jpeg',class: "rounded-circle" %>
 		<p class="user_name"><%= current_user.name %></p>
 		<P class="user_introduction"><%= @user.introduction %></P>
-		<%=link_to edit_user_path(current_user) do %>
-			<span class="raised user_edit"><i class="fas fa-user-edit"></i></span>
+		<% if @user == current_user %>
+			<%=link_to edit_user_path(current_user) do %>
+				<span class="raised user_edit"><i class="fas fa-user-edit"></i></span>
+			<% end %>
 		<% end %>
 	</div>
 	<hr>
