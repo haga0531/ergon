@@ -8,23 +8,7 @@
 	<% unless params[:tag_name] %>
 		<h2>人気サービス</h2>
 		<table class="table">
-			<% @all_ranks.each_with_index do |work,i| %>
-			<% if i == 1 %>
-			      	<div class="work_box1">
-				      	<%= link_to(work_path(work)) do %>
-				      	<%= attachment_image_tag work, :image, :fill, 260, 154,fallback: "no_image.jpg", size:'260x154', format: 'jpeg' %>
-				      	<span id="work-<%= work.id %>-like1" class="like">
-							    <%= render 'shared/likes', work: work, like: @like %>
-						</span>
-			　	      	<div class="work_box_item">
-					      	<strong><%= work.title %></strong>
-					      	<p>
-							   <%= work.created_at.strftime('%Y/%m/%d') %>
-							</p>
-						</div>
-				      	<% end %>
-				    </div>
-			<% else %>
+			<% @all_ranks.each do |work| %>
 					<div class="work_box">
 				      	<%= link_to(work_path(work)) do %>
 				      	<%= attachment_image_tag work, :image, :fill, 230, 154,fallback: "no_image.jpg", size:'230x154', format: 'jpeg' %>
@@ -39,7 +23,6 @@
 						</div>
 				      	<% end %>
 				    </div>
-		  	<% end %>
 		  	<% end %>
 		</table>
 	<% end %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'works#index'
   resources :users
   resources :works do
-  	resources :likes, only: [:create,:destroy]
+  	resource :like, only: [:create,:destroy]
     resources :comments,only: [:create,:destroy]
   end
   # delete '/works/:work_id/likes/:id', to: 'likes#destroy' ,as: :like
