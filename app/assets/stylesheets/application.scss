@@ -296,7 +296,7 @@ ul li {
 }
 
 
-/* User Show */
+/* ユーザー詳細 */
 .user_show{
   max-width: 940px;
   padding: 32px 0;
@@ -413,7 +413,7 @@ input[readonly] {
 }
 
 
-/*--- comments ---*/
+/*--- コメント機能 ---*/
 .comments_area{
   padding:10px 0;
 }
@@ -466,7 +466,7 @@ input[readonly] {
 }
 
 
-/* Work Show */
+/* 作品詳細 */
 .workShowH3{
   padding-top:25px;
   font-size:22px;
@@ -508,18 +508,21 @@ input[readonly] {
 }
 
 
-/* work index */
+/* 作品一覧 */
 .work_box{
   border-radius:5px;
   background-color:white;
   color:black;
-  width:230px;
+  width:190px;
   height:230px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   position:relative;
   display:inline-block;
   margin-right: 10px;
   margin-bottom: 40px;
+}
+.work_box:nth-child(5n){
+  margin-right:0;
 }
 .work_box img{
   border-top-left-radius:5px;

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PF</title>
+    <title>Ergon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('favicon.ico') %>
 
     <script>
         $(function () {
@@ -42,6 +43,7 @@
           background: rgba(0,0,0,0.8);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
           margin-bottom: 30px;
+          margin-top: 50px;
         }
     </style>
   </head>
@@ -49,7 +51,11 @@
   <body>
     <div id="wrapper">
     <div id="headerTopicContainer">
-      <h1><a href="/">Ergon</a></h1>
+      <h1>
+        <%=link_to root_path do %>
+          <%=image_tag "ErgonLogo.png" %>
+        <% end %>
+      </h1>
     </div>
 
     <header id="headerContainer" class="articles-Wrapper">

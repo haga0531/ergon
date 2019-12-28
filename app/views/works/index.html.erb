@@ -11,7 +11,7 @@
 			<% @all_ranks.each do |work| %>
 					<div class="work_box">
 				      	<%= link_to(work_path(work)) do %>
-				      	<%= attachment_image_tag work, :image, :fill, 230, 154,fallback: "no_image.jpg", size:'230x154', format: 'jpeg' %>
+				      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %>
 				      	<span id="work-<%= work.id %>-like1" class="like">
 							    <%= render 'shared/likes', work: work, like: @like %>
 						</span>
@@ -37,7 +37,7 @@
 		<% @works.each do |work| %>
 		      	<div class="work_box">
 			      	<%= link_to(work_path(work)) do %>
-			      	<%= attachment_image_tag work, :image, :fill, 230, 154,fallback: "no_image.jpg", size:'230x154', format: 'jpeg' %><br>
+			      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %><br>
 			      	<div class="work_box_item">
 				      	<strong><%= work.title %></strong>
 				      	<p>
