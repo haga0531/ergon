@@ -16,9 +16,26 @@
 		</div>
 	</div>
 	<div class="col-md-9">
+		<div class="menu">
 		<button class="raised"><i class="fas fa-external-link-alt"></i>
 				<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
 		</button>
+		<% if @work.user == current_user %>
+			<span class="menu_single work_edit">
+				<i class="fas fa-ellipsis-h"></i>
+				<ul class="menu_second-level">
+					<li class="btn4">
+						<i class="fas fa-edit"></i>
+						<%= link_to "投稿を編集",edit_work_path(@work) %>
+					</li>
+					<li class="btn4">
+						<i class="fas fa-trash-alt"></i>
+						<%= link_to "投稿を削除",work_path(@work),method: :delete, data: { confirm: "本当に削除しますか？"} %>
+					</li>
+				</ul>
+			</span>
+		</div>
+		<% end %>
 		<div>
 			<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
 		</div>
@@ -73,13 +90,5 @@
 		   <%= @work.created_at.strftime('%Y/%m/%d') %>
 		</span>
 		<P>作成者 : <%= link_to @work.user.name,user_path(@work.user) %></P>
-		<% if @work.user == current_user %>
-			<div class="btn-edit btn">
-				<%= link_to "投稿を編集",edit_work_path(@work) %>
-			</div>
-			<div class="btn-delete btn">
-			<%= link_to "投稿を削除",work_path(@work),method: :delete, data: { confirm: "本当に削除しますか？"} %>
-			</div>
-		<% end %>
 	</div>
 </div>

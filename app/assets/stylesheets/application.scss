@@ -131,20 +131,20 @@ header a:hover{
 }
 
 .menu_single .menu_second-level {
-    text-align:left;
-    position: absolute;
-    top: 40px;
-    width: 150px;
-    background: rgba(0,0,0,0.8);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
+  text-align:left;
+  position: absolute;
+  top: 40px;
+  width: 150px;
+  background: rgba(0,0,0,0.8);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 }
 
 .menu_single:hover .menu_second-level {
-    top: 60px;
-    visibility: visible;
-    opacity: 1;
+  top: 60px;
+  visibility: visible;
+  opacity: 1;
 }
 
 #headerTopicContainer{
@@ -316,7 +316,8 @@ ul li {
   border-radius: 50%;
   margin-top: 30px;
   color:red;
-  padding: 10px 10px;
+  width: 50px;
+  height: 50px;
 }
 .today:hover{
   opacity: .5;
@@ -539,17 +540,22 @@ input[readonly] {
   opacity: .5;
 }
 
-.btn-edit{
-  background-color:#26a69b;
-  text-decoration:none;
+.menu{
+  position:relative;
 }
-.btn-delete{
-  background-color:#979797;
-  text-decoration:none;
-}
-.btn-edit a,.btn-delete a{
+.work_edit{
+  position:absolute;
+  top:10px;
+  right:130px;
   color:white;
 }
+.work_edit a{
+  color:white;
+}
+.fa-ellipsis-h{
+  color:gray;
+}
+
 
 /* 作品一覧 */
 .work_box{
@@ -564,14 +570,11 @@ input[readonly] {
   margin-right: 10px;
   margin-bottom: 40px;
 }
-.work_box:nth-child(5n){
-  margin-right:0;
-}
+
 .work_box img{
   border-top-left-radius:5px;
   border-top-right-radius: 5px;
 }
-
 .work_box_item{
   display:inline-block;
   padding-left: 10px;
@@ -580,8 +583,6 @@ input[readonly] {
   font-size:14px;
   margin-top:20px;
 }
-
-
 .work_box1{
   border-radius:5px;
   background-color:white;
@@ -645,53 +646,53 @@ footer a:hover{
 
 
 /* シェアボタン */
-  .facebook {
-    background-color: #2e4a88;
-    display: inline-block;
-    position: relative;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border-radius: 50%;
-    padding: 11px 20px;
-  }
-  .facebook:hover {
-    opacity: .8;
-    color:white;
-  }
-  .twitter {
-    background-color: #008DDE;
-    display: inline-block;
-    position: relative;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border-radius: 50%;
-    padding: 11px 15px;
-    margin:30px 0;
-  }
-  .twitter:hover {
-    opacity: .8;
-    color:white;
-  }
-  .slack {
-    background-color: #9401ff;
-    display: inline-block;
-    position: relative;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border-radius: 50%;
-    padding: 11px 15px;
-    margin-top:30px;
-  }
-  .slack:hover {
-    opacity: .8;
-    color:white;
-  }
+.facebook {
+  background-color: #2e4a88;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 20px;
+}
+.facebook:hover {
+  opacity: .8;
+  color:white;
+}
+.twitter {
+  background-color: #008DDE;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 15px;
+  margin:30px 0;
+}
+.twitter:hover {
+  opacity: .8;
+  color:white;
+}
+.slack {
+  background-color: #9401ff;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 15px;
+  margin-top:30px;
+}
+.slack:hover {
+  opacity: .8;
+  color:white;
+}
