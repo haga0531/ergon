@@ -1,5 +1,4 @@
 class WorksController < ApplicationController
-	before_action :authenticate_user!
 	before_action :correct_work,only: [:edit,:update]
 
 	def index

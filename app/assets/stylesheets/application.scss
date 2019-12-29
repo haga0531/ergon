@@ -30,6 +30,8 @@ body{
 
 #wrapper {
   position: relative;
+  display:flex;
+  flex-direction: column;
 }
 
 .clearfix::after{
@@ -70,6 +72,10 @@ h1 a:hover{
   text-decoration: none;
 }
 
+.logo{
+  height:80px;
+}
+
 .mv{
   background-image:image-url("/assets/mv.png");
   height:600px;
@@ -100,7 +106,7 @@ h1 a:hover{
 }
 
 
-/* header */
+/* ヘッダー */
 header a{
   color: #f5f5f7;
 }
@@ -113,6 +119,31 @@ header a:hover{
 .header-center{
   width:1024px;
   margin:0 auto;
+}
+
+.menu_single {
+    position: relative;
+  }
+
+.menu_second-level{
+  visibility: hidden;
+}
+
+.menu_single .menu_second-level {
+    text-align:left;
+    position: absolute;
+    top: 40px;
+    width: 150px;
+    background: rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.menu_single:hover .menu_second-level {
+    top: 60px;
+    visibility: visible;
+    opacity: 1;
 }
 
 #headerTopicContainer{
@@ -507,6 +538,17 @@ input[readonly] {
   opacity: .5;
 }
 
+.btn-edit{
+  background-color:#26a69b;
+  text-decoration:none;
+}
+.btn-delete{
+  background-color:#979797;
+  text-decoration:none;
+}
+.btn-edit a,.btn-delete a{
+  color:white;
+}
 
 /* 作品一覧 */
 .work_box{
@@ -586,6 +628,7 @@ footer{
   background: rgba(0,0,0,0.8);
   color: #f5f5f7;
   padding:10px 200px;
+  margin-top:auto;
 }
 footer a{
   color: #f5f5f7;
@@ -644,7 +687,7 @@ footer a:hover{
     text-decoration: none;
     color: white;
     border-radius: 50%;
-    padding: 11px 17px;
+    padding: 11px 15px;
     margin-top:30px;
   }
   .slack:hover {
