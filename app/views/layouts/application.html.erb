@@ -49,7 +49,6 @@
   </head>
 
   <body>
-    <div id="wrapper">
     <div id="headerTopicContainer">
       <h1>
         <%=link_to root_path do %>
@@ -93,8 +92,8 @@
             <% end %>
           </ul>
     </header>
+    <div id="wrapper">
     <div class="container content-center">
-      <%= render 'shared/flash' %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

@@ -1,24 +1,22 @@
-# README
+# Ergon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+投稿型のサービスです。周囲のエンジニアの方のポートフォリオを見てみたいという思いから作りました。
 
-Things you may want to cover:
+## 使用技術,環境
+* Ruby '2.5.5'
 
-* Ruby version
+* Rails '5.2.4'
 
-* System dependencies
+* vagrant環境
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+機能一覧:
 
-* How to run the test suite
+* ログインログアウト
 
-* Services (job queues, cache servers, search engines, etc.)
+* 投稿CRUD処理
 
-* Deployment instructions
+* いいね機能
 
-* ...
+
