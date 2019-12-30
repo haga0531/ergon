@@ -8,10 +8,11 @@ class Work < ApplicationRecord
   end
 
   acts_as_taggable
+  paginates_per 8
 
   attachment :image
   validates :title, presence: true
   validates :description, presence: true
-  # validates :work_image_id, presence: true
+  validates :work_image_id, presence: true
   validates :app_url, presence: true
 end

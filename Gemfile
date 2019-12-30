@@ -12,6 +12,7 @@ gem "refile-mini_magick"
 gem 'rinku'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
