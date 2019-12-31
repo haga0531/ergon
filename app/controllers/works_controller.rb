@@ -2,7 +2,8 @@ class WorksController < ApplicationController
 	before_action :correct_work,only: [:edit,:update]
 
 	def index
-		@works = Work.all.order(created_at: :desc)
+		# @works = Work.all.order(created_at: :desc)
+		@works = Work.all.order(created_at: :desc).page(params[:page])
 		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
 		if params[:tag_name]
 			@works = @works.tagged_with("#{params[:tag_name]}")

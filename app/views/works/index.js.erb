@@ -1,0 +1,4 @@
+$('#work_lists').append("<%= escape_javascript(render 'works_list', object: @works) %>");
+$("#view_more").replaceWith("<%= escape_javascript( 
+link_to_next_page(@works, 'もっと見る', remote: true, id: 'view_more')) %>");
+

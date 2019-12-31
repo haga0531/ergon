@@ -32,3 +32,4 @@ $(function() {
     $('.area ul').removeClass('show').eq(index).addClass('show');
   });
 });
+

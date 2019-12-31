@@ -34,19 +34,8 @@
 	<% end %>
 
 	<table class="table">
- 		<% @works.each do |work| %>
-		  	<div class="work_box">
-		      	<%= link_to(work_path(work)) do %>
-		      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %><br>
-		      	<div class="work_box_item">
-			      	<strong><%= work.title %></strong>
-			      	<p>
-					   <%= work.created_at.strftime('%Y/%m/%d') %>
-					</p>
-				</div>
-				<% end %>
-			</div>
-		<% end %>
+ 		 <div id="work_lists"><%= render 'works_list' %></div>
+ 		 <div class="more more_btn"><%= link_to_next_page @works, 'もっと見る', remote: true, id: 'view_more' %></div>
 	</table>
 	</div>
 
