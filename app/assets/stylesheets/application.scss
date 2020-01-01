@@ -18,6 +18,11 @@
  @import 'font-awesome';
  @charset 'UTF-8';
 
+ @font-face {
+  font-family: 'myfont';
+  src: font-url('mplus-2p-bold.otf') format('truetype');
+}
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -26,6 +31,7 @@
 
 body{
   background-color:#f9f6f7;
+  font-family: 'myfont';
 }
 
 #wrapper {
