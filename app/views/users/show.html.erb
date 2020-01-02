@@ -28,16 +28,20 @@
 					  <tbody>
 					    <tr>
 					      <th scope="row">
-					      	<div class="show_work_box">
-					      	<%= link_to(work_path(work)) do %>
-					      	<%= attachment_image_tag work, :image, :fill, 260, 200,fallback: "no_image.jpg", size:'260x200', format: 'jpeg' %>
-					      	<div class="work_box_item">
+					      	<div class="small_box">
+						      	<div class="small_box_image">
+							      	<%= link_to(work_path(work)) do %>
+							      	<%= attachment_image_tag work, :image, :fill, 60, 40,fallback: "no_image.jpg", size:'60x40', format: 'jpeg' %>
+							      	<% end %>
+						      	</div>
+						      	<div class="small_box_item">
+						      		<%= link_to(work_path(work)) do %>
 							      	<strong><%= work.title %></strong>
 							      	<p>
 									   <%= work.created_at.strftime('%Y/%m/%d') %>
 									</p>
-							</div>
-					      	<% end %>
+									<% end %>
+								</div>
 					      	</div>
 					      </th>
 					    </tr>
@@ -53,17 +57,21 @@
 					  <tbody>
 					    <tr>
 					      <th scope="row">
-					      	<div class="show_work_box">
+					      	<div class="small_box">
 						      	<% work = Work.find_by(id: comment.work_id) %>
-						      	<%= link_to(work_path(work)) do %>
-						      	<%= attachment_image_tag work, :image, :fill, 260, 200,fallback: "no_image.jpg", size:'260x200', format: 'jpeg' %>
-						      	<div class="work_box_item">
+						      	<div class="small_box_image">
+							      	<%= link_to(work_path(work)) do %>
+							      	<%= attachment_image_tag work, :image, :fill, 60, 40,fallback: "no_image.jpg", size:'60x40', format: 'jpeg' %>
+							      	<% end %>
+						      	</div>
+						      	<div class="small_box_item">
+						      		<%= link_to(work_path(work)) do %>
 							      	<strong><%= work.title %></strong>
 							      	<p>
 									   <%= work.created_at.strftime('%Y/%m/%d') %>
 									</p>
+									<% end %>
 								</div>
-						      	<% end %>
 					      	</div>
 					      </th>
 					    </tr>
@@ -79,17 +87,21 @@
 					  <tbody>
 					    <tr>
 					      <th scope="row">
-					      	<div class="show_work_box">
-					      	<% work = Work.find_by(id: like.work_id) %>
-					      	<%= link_to(work_path(work)) do %>
-					      	<%= attachment_image_tag work, :image, :fill, 260, 200,fallback: "no_image.jpg", size:'260x200', format: 'jpeg' %><br>
-					      	<div class="work_box_item">
-						      	<strong><%= work.title %></strong>
-						      	<p>
-								   <%= work.created_at.strftime('%Y/%m/%d') %>
-								</p>
-							</div>
-					      	<% end %>
+					      	<div class="small_box">
+						      <% work = Work.find_by(id: like.work_id) %>
+						      	<div class="small_box_image">
+							      	<%= link_to(work_path(work)) do %>
+							      	<%= attachment_image_tag work, :image, :fill, 60, 40,fallback: "no_image.jpg", size:'60x40', format: 'jpeg' %>
+							      	<% end %>
+							    </div>
+						      	<div class="small_box_item">
+						      		<%= link_to(work_path(work)) do %>
+							      	<strong><%= work.title %></strong>
+							      	<p>
+									   <%= work.created_at.strftime('%Y/%m/%d') %>
+									</p>
+									<% end %>
+								</div>
 					      	</div>
 					      </th>
 					    </tr>
