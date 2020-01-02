@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-1">
 		<span id="work-<%= @work.id %>-like1">
-		    <%= render 'shared/likes', work: @work, like: @like %>
+		    <%= render 'likes/likes', work: @work, like: @like %>
 		</span>
 		<div id='sosyal'>
 		   <%= link_to  "https://twitter.com/share?url=#{request.url}&text=%20%23Ergon%20#{@work.title}", class: 'twitter', title: 'Twitter', target: '_blank' do%>

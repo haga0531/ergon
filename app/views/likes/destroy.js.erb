@@ -1,1 +1,1 @@
-$("#work-<%= @work.id %>-like").html("<%= j(render 'shared/likes', work: @work, like: @like) %>")
+$("#work-<%= @work.id %>-like").html("<%= j(render 'likes/likes', work: @work, like: @like) %>")

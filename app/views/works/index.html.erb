@@ -13,7 +13,7 @@
 				      	<%= link_to(work_path(work)) do %>
 				      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %>
 				      	<span id="work-<%= work.id %>-like1" class="like">
-							    <%= render 'shared/likes', work: work, like: @like %>
+							    <%= render 'likes/likes', work: work, like: @like %>
 						</span>
 			　	      	<div class="work_box_item">
 					      	<strong><%= work.title %></strong>
