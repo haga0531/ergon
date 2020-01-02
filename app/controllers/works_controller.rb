@@ -15,10 +15,10 @@ class WorksController < ApplicationController
 		@work = Work.new
 	end
 
-	# def confirm
-	# 	@work = current_user.works.build(work_params)
-	# 	render :new if @work.invalid?
-	# end
+	def rank
+		@works = Work.all.order(created_at: :desc).page(params[:page])
+		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(8).pluck(:work_id))
+	end
 
 	def create
 		# @work = Work.new(work_params)

@@ -408,8 +408,20 @@ ul li {
   text-decoration:none;
 }
 .small_box_item p{
-  font-size: 10px;
+  font-size: 12px;
+  display:inline-block;
+  float:left;
+}
+
+.small_box_item_user a{
+  color:#000;
+  text-decoration:none;
+}
+
+.small_box_item_user p{
   display:block;
+  float:none;
+  font-size:12px;
 }
 
 
@@ -656,30 +668,16 @@ input[readonly] {
   background-color:#ff971d;
 }
 
-.more_btn{
-  width:200px;
-  margin:0 auto;
-  height:30px;
-  border-radius:30px;
-  font-size:20px;
-  font-weight:700;
-  text-align:center;
-  text-decoration:none;
-  cursor:pointer;
-  background-color:#ff971d;
-  border: 1px solid #ff971d;
-  line-height:30px;
+
+/* ランキングページ */
+.small_like{
+  font-size: 12px;
+  float:left;
+  margin-left:10px;
 }
-.more_btn:hover {
-  background-color: white;
-  border-color: #ff971d;
-  color: #ff971d;
-}
-.more_btn a{
-  color:white;
-}
-.more_btn a:hover{
-  color:#ff971d;
+
+strong{
+  font-size:17px;
 }
 
 
