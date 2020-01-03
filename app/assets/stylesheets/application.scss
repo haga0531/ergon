@@ -326,7 +326,7 @@ ul li {
   height: 50px;
 }
 .fav:hover{
-  opacity: .5;
+  opacity: .8;
 }
 
 .description{
@@ -670,6 +670,10 @@ input[readonly] {
 
 
 /* ランキングページ */
+.rank_page{
+  width:660px;
+  margin:0 auto;
+}
 .small_like{
   font-size: 12px;
   float:left;

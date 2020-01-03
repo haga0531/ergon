@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   	resource :like, only: [:create,:destroy]
     resources :comments,only: [:create,:destroy]
   end
-  # delete '/works/:work_id/likes/:id', to: 'likes#destroy' ,as: :like
+  get '/about/ergon',to: "users#about_ergon"
+  get '/contact',to: "users#contact"
+  get '/about/auther',to: "users#about_auther"
 end

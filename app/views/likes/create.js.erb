@@ -1,1 +1,3 @@
 $("#work-<%= @work.id %>-like").html("<%= j(render 'likes/likes', work: @work, like: @like) %>")
+console.log($("#work-<%= @work.id %>-like").length());
+console.log("長さは？？");
