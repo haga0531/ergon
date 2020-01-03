@@ -23,14 +23,6 @@ class UsersController < ApplicationController
     	end
     end
 
-    def about_ergon
-    end
-
-    def about_auther
-    end
-
-    def contact
-    end
 
     private
     def user_params

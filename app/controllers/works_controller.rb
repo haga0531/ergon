@@ -61,6 +61,15 @@ class WorksController < ApplicationController
 		end
 	end
 
+	def about_ergon
+    end
+
+    def about_auther
+    end
+
+    def contact
+    end
+
 
 	private
 	def work_params

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   	resource :like, only: [:create,:destroy]
     resources :comments,only: [:create,:destroy]
   end
-  get '/about/ergon',to: "users#about_ergon"
-  get '/contact',to: "users#contact"
-  get '/about/auther',to: "users#about_auther"
+  get '/about/ergon',to: "works#about_ergon"
+  get '/contact',to: "works#contact"
+  get '/about/auther',to: "works#about_auther"
 end
