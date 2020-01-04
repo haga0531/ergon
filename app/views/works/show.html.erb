@@ -17,9 +17,9 @@
 	</div>
 	<div class="col-md-9">
 		<div class="menu">
-			<button class="raised"><i class="fas fa-external-link-alt"></i>
-					<%= Rinku.auto_link(@work.app_url, :all, 'target="_blank"').html_safe%>
-			</button>
+			<%=link_to "#{@work.app_url}", target: :_blank,class: "raised" do%>
+				<i class="fas fa-external-link-alt"></i>アプリをひらく
+			<% end %>
 			<% if @work.user == current_user %>
 				<span class="menu_single work_edit">
 					<i class="fas fa-ellipsis-h"></i>
