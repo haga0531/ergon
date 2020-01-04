@@ -68,9 +68,11 @@
 					<p class="comment-frame">
 						<%= comment.content %>
 					</p>
+					<% if comment.user == current_user %>
 					<small class="commentDelete">
 							<%= link_to "削除",work_comment_path(comment.work.id, comment.id),method: :delete, :style=>"color:gray;" %>
-					</small><br>
+					</small>
+					<%end%><br>
 					<small class="commentTime">
 						<%= comment.created_at.strftime('%Y/%m/%d/ %H:%M') %>
 					</small>
