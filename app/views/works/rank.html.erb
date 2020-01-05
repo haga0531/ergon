@@ -1,8 +1,13 @@
 <div class="rank_page">
 	<h3><i class="far fa-chart-bar"></i> ランキング</h3>
 <table class="table">
-	<% @all_ranks.each do |work| %>
+	<% @all_ranks.each_with_index do |work,i| %>
 		<div class="small_box">
+			<% if i < 3 %>
+				<%=image_tag "rank#{i}.png",class: "rank-image" %>
+			<% elsif i >= 3  %>
+				<span class="rank-under-4"><%= i+1 %></span>
+			<% end %>
 			<div class="small_box_image">
 		      	<%= link_to(work_path(work)) do %>
 		      	<%= attachment_image_tag work, :image, :fill, 60, 40,fallback: "no_image.jpg", size:'60x40', format: 'jpeg' %>
@@ -11,33 +16,35 @@
 	　	    <div class="small_box_item">
 				<%= link_to(work_path(work)) do %>
 		      	<strong><%= work.title %></strong><br>
-		      	<p>
-				   <%= work.created_at.strftime('%Y/%m/%d') %>
-				</p>
-				<span id="work-<%= work.id %>-like1">
-				    <% if user_signed_in? %>
-					  <% if work.like_user(current_user.id) %>
-					    <div class="small_like">
-					      <i class="fas fa-heart"></i>
-					      <span>
-					        <%= work.likes_count %>
-					      </span>
-					  	</div>
-					  <% else %>
-					    <div class="small_like">
-					      <i class="far fa-heart"></i>
-					      <span>
-					        <%= work.likes_count %>
-					      </span>
-					  </div>
-					  <% end %>
-					<% else %>
-					  <i class="far fa-heart"></i>
-					  <span>
-					    <%= work.likes_count %>
-					  </span>
-					<% end %>
-				</span>
+		      	<div class="small_box_item_text">
+			      	<p>
+					   <%= work.created_at.strftime('%Y/%m/%d') %>
+					</p>
+					<span id="work-<%= work.id %>-like1" class="small-like-box">
+					    <% if user_signed_in? %>
+						  <% if work.like_user(current_user.id) %>
+						    <div class="small_like">
+						      <i class="fas fa-heart"></i>
+						      <span class="small-count">
+						        <%= work.likes_count%>
+						      </span>
+						  	</div>
+						  <% else %>
+						    <div class="small_like">
+						      <i class="far fa-heart"></i>
+						      <span class="small-count">
+						        <%= work.likes_count %>
+						      </span>
+						  </div>
+						  <% end %>
+						<% else %>
+						  <i class="far fa-heart"></i>
+						  <span class="small-count">
+						    <%= work.likes_count %>
+						  </span>
+						<% end %>
+					</span>
+				</div>
 				<% end %>
 			</div>
 		</div>

@@ -389,6 +389,7 @@ ul li {
   width: 100%;
   border-bottom: 1px solid #e8e8e8;
   padding: 16px;
+  padding-bottom: 0px;
 }
 .small_box_image{
   display: flex;
@@ -411,6 +412,7 @@ ul li {
   font-size: 12px;
   display:inline-block;
   float:left;
+  margin-right:7px;
 }
 
 .small_box_item_user a{
@@ -424,6 +426,16 @@ ul li {
   font-size:12px;
 }
 
+.small_box_item_text{
+  padding-top:10px;
+  height: 15px;
+}
+
+.small-like-box{
+  float: left;
+  height: 18px;
+  line-height: 17px;
+}
 
 /* 画像投稿ボタン */
 .btn-file {
@@ -675,13 +687,33 @@ input[readonly] {
   margin:0 auto;
 }
 .small_like{
-  font-size: 12px;
   float:left;
   margin-left:10px;
+  line-height: 18px;
+}
+
+.fa-heart,.small-count{
+  font-size: 12px;
 }
 
 strong{
   font-size:17px;
+}
+
+.rank-image{
+  height:43px;
+  margin-right:25px;
+}
+
+.rank-under-4{
+  margin-right:25px;
+  width:43px;
+  height:43px;
+  display:inline-block;
+  text-align:center;
+  line-height: 43px;
+  color: #5f6769;
+  border-radius: 50%;
 }
 
 
