@@ -437,6 +437,13 @@ ul li {
   line-height: 17px;
 }
 
+.app_introduction_area{
+  background-color:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+}
+
 /* 画像投稿ボタン */
 .btn-file {
   position: relative;
@@ -506,7 +513,10 @@ input[readonly] {
 
 /*--- コメント機能 ---*/
 .comments_area{
-  padding:10px 0;
+  padding:20px;
+  border-radius:10px;
+  background-color:white;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .comment_field{
@@ -556,7 +566,6 @@ input[readonly] {
   padding-left:0 5px;
 }
 
-
 /* 作品詳細 */
 .workShowH3{
   padding-top:25px;
@@ -566,6 +575,11 @@ input[readonly] {
 
 .workShowYoutube{
   margin-bottom:50px;
+  margin-top:20px;
+}
+
+.workShowDescription{
+  margin-bottom:30px;
 }
 
 .raised{
@@ -616,6 +630,10 @@ input[readonly] {
 
 
 /* 作品一覧 */
+.top-h2{
+  margin-top:30px;
+}
+
 .work_box{
   border-radius:5px;
   background-color:white;

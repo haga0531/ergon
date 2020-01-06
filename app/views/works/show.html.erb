@@ -16,50 +16,57 @@
 		</div>
 	</div>
 	<div class="col-md-9">
-		<div class="menu">
-			<%=link_to "#{@work.app_url}", target: :_blank,class: "raised" do%>
-				<i class="fas fa-external-link-alt"></i>アプリをひらく
-			<% end %>
-			<% if @work.user == current_user %>
-				<span class="menu_single work_edit">
-					<i class="fas fa-ellipsis-h"></i>
-					<ul class="menu_second-level">
-						<li class="btn4">
-							<i class="fas fa-edit"></i>
-							<%= link_to "投稿を編集",edit_work_path(@work) %>
-						</li>
-						<li class="btn4">
-							<i class="fas fa-trash-alt"></i>
-							<%= link_to "投稿を削除",work_path(@work),method: :delete, data: { confirm: "本当に削除しますか？"} %>
-						</li>
-					</ul>
-				</span>
-			<% end %>
-		</div>
-		<div>
-			<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
-		</div>
-		<dic class="clearfix">
-			<h3 class="workShowH3 left"><%= @work.title %></h3>
-		</dic>
-		<span>
-			<%= render 'works/tag_list',tag_list: @work.tag_list %>
-		</span>
-
-		<div class="workShowDescription">
-			<h3 class="workShowH3">サービス紹介</h3>
-			<p class="description"><%= @work.description %></p>
-		</div>
-
-		<div class="workShowYoutube">
-			<h3 class="workShowH3"><i class="fab fa-youtube"></i> 紹介動画</h3>
+		<div class="app_introduction_area">
+			<div class="menu">
+				<%=link_to "#{@work.app_url}", target: :_blank,class: "raised" do%>
+					<i class="fas fa-external-link-alt"></i>アプリをひらく
+				<% end %>
+				<% if @work.user == current_user %>
+					<span class="menu_single work_edit">
+						<i class="fas fa-ellipsis-h"></i>
+						<ul class="menu_second-level">
+							<li class="btn4">
+								<i class="fas fa-edit"></i>
+								<%= link_to "投稿を編集",edit_work_path(@work) %>
+							</li>
+							<li class="btn4">
+								<i class="fas fa-trash-alt"></i>
+								<%= link_to "投稿を削除",work_path(@work),method: :delete, data: { confirm: "本当に削除しますか？"} %>
+							</li>
+						</ul>
+					</span>
+				<% end %>
+			</div>
 			<div>
-				<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
+			</div>
+			<dic class="clearfix">
+				<h3 class="workShowH3 left"><%= @work.title %></h3>
+			</dic>
+			<span>
+				<%= render 'works/tag_list',tag_list: @work.tag_list %>
+			</span>
+
+			<div class="workShowDescription">
+				<p class="description"><%= @work.description %></p>
+			</div>
+			<hr>
+			<div class="workShowYoutube">
+				<h3 class="workShowH3"><i class="fab fa-youtube"></i> 紹介動画</h3>
+				<div>
+					<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
 			</div>
 		</div>
 		<hr>
 		<div class="comments_area">
 			<h4>コメント</h4>
+			<%= form_for [@work,@comment] do |f| %>
+				<%= f.text_area :content, class: "comment_field" %><br>
+
+				<%= f.submit "コメントする",class: "btn btn-info" %>
+			<% end %>
+			<hr>
 			<% @comments.each do |comment| %>
 				<div>
 					<a href="/users/<%= @work.user.id %>">
@@ -77,11 +84,6 @@
 						<%= comment.created_at.strftime('%Y/%m/%d/ %H:%M') %>
 					</small>
 				</div>
-			<% end %>
-			<%= form_for [@work,@comment] do |f| %>
-				<%= f.text_area :content, class: "comment_field" %><br>
-
-				<%= f.submit "コメントする",class: "btn btn-info" %>
 			<% end %>
 		</div>
 	</div>
