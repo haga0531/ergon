@@ -5,45 +5,52 @@
 <% end %>
 <div class="row">
 	<div class="col-md-10">
-	<% unless params[:tag_name] %>
+		<% unless params[:tag_name] %>
 		<h2 class="top-h2">人気サービス</h2>
-		<table class="table">
-			<% @all_ranks.each do |work| %>
-				<div class="work_box">
-			      	<%= link_to(work_path(work)) do %>
-			      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %>
-			      	<span id="work-<%= work.id %>-like1" class="like">
-						    <%= render 'likes/likes', work: work, like: @like %>
-					</span>
-		　	      	<div class="work_box_item">
-				      	<strong><%= work.title %></strong>
-				      	<p>
-						   <%= work.created_at.strftime('%Y/%m/%d') %>
-						</p>
-					</div>
-			      	<% end %>
-			    </div>
-		  	<% end %>
-		</table>
-		<%= link_to "ランキング一覧をみる",rank_path %>
-	<% end %>
-	<hr>
-	<% unless params[:tag_name] %>
-		<h2 class="top-h2">新規サービス</h2>
-	<% else %>
-		<h2><%= params[:tag_name] %></h2>
-	<% end %>
-
-	<table class="table">
- 		 <div id="work_lists"><%= render 'works_list' %></div>
- 		 <div class="more more_btn"><%= link_to_next_page @works, 'もっと見る', remote: true, id: 'view_more' %></div>
-	</table>
+		<div class="top_area">
+			<table class="table">
+			  <div class="work_lists">
+				<% @all_ranks.each do |work| %>
+					<div class="work_box">
+				      	<%= link_to(work_path(work)) do %>
+				      	<%= attachment_image_tag work, :image, :fill, 190, 154,fallback: "no_image.jpg", size:'190x154', format: 'jpeg' %>
+				      	<div class="work_box_item">
+					      	<strong><%= work.title %></strong>
+					      	<p>
+							   <%= work.created_at.strftime('%Y/%m/%d') %>
+							</p>
+						</div>
+				      	<span id="work-<%= work.id %>-like1" class="like">
+							    <%= render 'likes/likes', work: work, like: @like %>
+						</span>
+				      	<% end %>
+				    </div>
+			  	<% end %>
+			  </div>
+			</table>
+			<%= link_to "ランキング一覧をみる",rank_path %>
+		<% end %>
+		</div>
+		<hr>
+		<% unless params[:tag_name] %>
+			<h2 class="top-h2 top-h2-new">新規サービス</h2>
+		<% else %>
+			<h2><%= params[:tag_name] %></h2>
+		<% end %>
+		<div class="top_area">
+			<table class="table">
+		 		 <div id="work_lists"><%= render 'works_list' %></div>
+		 		 <div class="more more_btn"><%= link_to_next_page @works, 'もっと見る', remote: true, id: 'view_more' %></div>
+			</table>
+		</div>
 	</div>
 
 	<div class="col-md-2">
 		<% unless params[:tag_name] %>
-			<h2>使用技術</h2>
+		<h2 class="top-h2">使用技術</h2>
+		<div class="top_area">
 			<%= render 'works/skill_tag' %>
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>
