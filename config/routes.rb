@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	resource :like, only: [:create,:destroy]
     resources :comments,only: [:create,:destroy]
   end
+  get '/tag/:tag_name',to:"works#tag_index",as: 'tag'
   get '/about/ergon',to: "works#about_ergon"
   get '/contact',to: "works#contact"
   get '/about/auther',to: "works#about_auther"

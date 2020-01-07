@@ -85,14 +85,14 @@ h1 a:hover{
 
 .mv{
   background-image:image-url("/assets/mv.png");
-  height:600px;
+  height:650px;
   background-size:cover;
   position:relative;
 }
 .top_btn{
   position:absolute;
-  bottom:130px;
-  right:120px;
+  bottom:140px;
+  right:180px;
   width:450px;
   height:51px;
   border-radius:30px;
@@ -577,6 +577,12 @@ input[readonly] {
   font-weight:bold;
 }
 
+.col-md-2 .workShowH3{
+  padding-top:50px;
+  font-size:22px;
+  font-weight:bold;
+}
+
 .workShowYoutube{
   margin-bottom:50px;
   margin-top:20px;
@@ -629,6 +635,27 @@ input[readonly] {
 }
 .fa-ellipsis-h{
   color:gray;
+}
+
+.menu_second-level_show{
+  visibility: hidden;
+}
+
+.menu_single .menu_second-level_show {
+  text-align:left;
+  position: absolute;
+  top: 15px;
+  width: 150px;
+  background: rgba(0,0,0,0.8);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.menu_single:hover .menu_second-level_show {
+  top: 15px;
+  visibility: visible;
+  opacity: 1;
 }
 
 

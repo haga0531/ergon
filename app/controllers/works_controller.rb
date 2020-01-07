@@ -4,10 +4,12 @@ class WorksController < ApplicationController
 	def index
 		@works = Work.all.order(created_at: :desc).page(params[:page])
 		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(8).pluck(:work_id))
-		if params[:tag_name]
-			@works = @works.tagged_with("#{params[:tag_name]}")
-		end
 		@like = Like.find_by(user_id: current_user.id, work_id: params[:id]) if user_signed_in?
+	end
+
+	def tag_index
+		@works_tag = Work.all.order(created_at: :desc)
+		@works = @works_tag.tagged_with("#{params[:tag_name]}")
 	end
 
 	def new
