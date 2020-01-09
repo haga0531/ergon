@@ -20,7 +20,7 @@
 							   <%= work.created_at.strftime('%Y/%m/%d') %>
 							</p>
 						</div>
-				      	<span id="work-<%= work.id %>-like1" class="like">
+				      	<span id="work-<%= work.id %>-like" class="like">
 							    <%= render 'likes/likes', work: work, like: @like %>
 						</span>
 				      	<% end %>
