@@ -1,0 +1,32 @@
+<div id="con2" class="modal-content">
+  <div class="fix">
+  <p><a class="modal-close"><i class="far fa-times-circle"></i></i></a></p>
+    <div class="text-align">
+      <h2>ログイン</h2>
+        <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="pcP+VyvN5/k9XwQgvP4BDekNYSCdS/1uEWcUp14a36hvjmWgZWmEIPQY+0lUIoazic82Uc8Wv+GkveS2hdxiFA==">
+
+              <div class="field">
+                <label for="user_email">Email</label><br>
+                <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email">
+              </div>
+
+              <div class="field">
+                <label for="user_password">Password</label><br>
+                <input autocomplete="current-password" type="password" name="user[password]" id="user_password">
+              </div>
+
+              <div class="field">
+                <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+                <label for="user_remember_me">ログイン情報を保存する</label>
+              </div>
+
+              <div class="actions">
+                <input type="submit" name="commit" value="ログイン" class="btn btn-sign" data-disable-with="ログイン">
+              </div>
+              <br>
+              <hr>
+              <a href="/users/password/new" class="forget-pass-link">パスワードを忘れた方</a>
+        </form>
+    </div>
+  </div>
+</div>

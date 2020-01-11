@@ -45,15 +45,11 @@
                   </ul>
                 </li>
             <% else %>
-                <li>
-                <%= link_to new_user_registration_path do %>
-                  <span class="btn4">新規登録</span>
-                <% end %>
+                <li><a class="modal-open" data-target="con1"><span class="btn4 modal-link">新規登録</span></a>
+                  <%= render 'field/registration_field' %>
                 </li>
-                <li>
-                <%= link_to new_user_session_path do%>
-                  <span class="btn4">ログイン</span>
-                <% end %>
+                <li><a class="modal-open" data-target="con2"><span class="btn4 modal-link">ログイン</span></a>
+                  <%= render 'field/session_field' %>
                 </li>
               </div>
             <% end %>
