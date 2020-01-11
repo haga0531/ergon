@@ -19,6 +19,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
+
+// views/users/showにあるタブ部分
 $(function() {
   // ①タブをクリックしたら発動
   $('.tab li').click(function() {
@@ -30,5 +32,54 @@ $(function() {
     $(this).addClass('active');
     // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
     $('.area ul').removeClass('show').eq(index).addClass('show');
+  });
+});
+
+
+
+//ヘッダー追従
+$(function () {
+    var offset = $('#headerContainer').offset();
+    $(window).scroll(function () {
+
+        if ($(this).scrollTop() > offset.top) {
+            $('#headerContainer').addClass('is-fixed');
+        } else {
+            $('#headerContainer').removeClass('is-fixed');
+        }
+    });
+});
+
+
+//モーダル部分(ログイン画面、投稿画面)
+$(function(){
+  $('.modal-open').click(function(){
+    $('body').append('<div class="modal-overlay"></div>');
+    $('.modal-overlay').fadeIn('slow');
+
+    var modal = '#' + $(this).attr('data-target');
+    modalResize();
+    $(modal).fadeIn('slow');
+
+    $('.modal-overlay, .modal-close').off().click(function(){
+      $(modal).fadeOut('slow');
+      $('.modal-overlay').fadeOut('slow',function(){
+        $('.modal-overlay').remove();
+      });
+    });
+
+    $(window).on('resize',function(){
+      modalResize();
+    });
+
+    function modalResize(){
+      var w = $(window).width();
+      var h = $(window).height();
+
+      var x = (w - $(modal).outerWidth(true)) / 2;
+      var y = (h - $(modal).outerHeight(true)) / 2;
+
+      $(modal).css({'left': x + 'px','top': y + 'px'});
+    }
   });
 });

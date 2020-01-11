@@ -1,3 +1,383 @@
 // Place all the styles related to the works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* バッジ */
+.badge-background{
+  background-color:#ff971d;
+}
+
+
+/* 投稿フォーム */
+.field{
+  position: relative;
+  margin: 30px 7%;
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 2px 0;
+    padding: 0.3em;
+    padding-left: 40px;
+    transition: 0.3s;
+    border: 1px solid #1b2538;
+    border-radius: 4px;
+    outline: none;
+    &:focus {
+      border-color: #da3c41;
+    }
+  }
+}
+
+.field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2px 0;
+  padding: 0.3em;
+  padding-left: 40px;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+  &:focus {
+    border-color: #da3c41;
+  }
+}
+
+.required{
+  background-color:#ff971d;
+  color:white;
+}
+.optional{
+  background-color:#b3b3b1;
+  color:white;
+}
+
+
+/* 画像投稿ボタン */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+  }
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+
+/* 作品一覧 */
+.mv{
+  background-image:image-url("/assets/mv.png");
+  height:650px;
+  background-size:cover;
+  position:relative;
+}
+.top_btn{
+  position:absolute;
+  bottom:140px;
+  right:180px;
+  width:450px;
+  height:51px;
+  border-radius:30px;
+  font-size:20px;
+  font-weight:700;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
+  background-color:#ff971d;
+  border: 1px solid #ff971d;
+  color:white;
+  line-height:50px;
+  &:hover {
+    background-color: white;
+    border-color: #ff971d;
+    color: #ff971d;
+  }
+}
+
+
+.top_area{
+  padding:10px;
+  border-radius:10px;
+  background-color:white;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.top-h2{
+  margin-bottom:10px;
+  font-size: 25px;
+}
+.top-h2-new{
+  margin-top:30px;
+}
+
+#work_lists,.work_lists{
+  margin:0 auto;
+  width:100%;
+  padding-top: 10px;
+  text-align:center;
+}
+
+.work_box{
+  text-align:left;
+  border-radius:5px;
+  background-color:white;
+  color:black;
+  width:190px;
+  height:230px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  position:relative;
+  display:inline-block;
+  margin-right: 10px;
+  margin-bottom: 40px;
+  img{
+    border-top-left-radius:5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+.work_box_item{
+  display:inline-block;
+  padding-left: 10px;
+  p{
+    font-size:14px;
+    margin-top:20px;
+  }
+}
+
+.work_box1{
+  border-radius:5px;
+  background-color:white;
+  color:black;
+  width:260px;
+  height:230px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  position:relative;
+  display:inline-block;
+  margin-right: 10px;
+  margin-bottom: 40px;
+  img{
+    border-top-left-radius:5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+.work_box_item{
+  display:inline-block;
+  padding-left: 10px;
+  color:black;
+  p{
+    font-size:14px;
+    margin-top:20px;
+  }
+}
+
+.card_like{
+  position:absolute;
+  right: 10px;
+  bottom: 50px;
+  font-size: 16px;
+}
+
+
+/* 作品詳細 */
+.show_contents{
+  width:80%;
+  margin:0 auto;
+}
+.workShowH3{
+  padding-top:25px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.col-md-2 .workShowH3{
+  padding-top:50px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.workShowYoutube{
+  margin-bottom:50px;
+  margin-top:20px;
+}
+
+.workShowDescription{
+  margin-bottom:30px;
+}
+
+.raised{
+  display: inline-block;
+  background-color: #26a69b;/*背景色*/
+  color: #FFF;/*文字色*/
+  font-size: 1em;/*文字サイズ*/
+  line-height: 1;
+  text-decoration: none;
+  letter-spacing: 0.05em;/*字間*/
+  padding: 0.2em 1em;/*ボタン内の余白*/
+  margin-bottom: 10px;
+  border-radius: 3px;/*角の丸み*/
+    cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);/*影*/
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  &:hover{
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+  }
+  a {
+    color: white;
+    text-decoration:none;
+    &:hover{
+      text-decoration:none;
+      color: white;
+      opacity: .5;
+    }
+  }
+}
+
+.menu{
+  position:relative;
+}
+
+.work_edit{
+  position:absolute;
+  right:10px;
+  color:white;
+  a{
+    color:white;
+  }
+}
+
+.fa-ellipsis-h{
+  color:gray;
+}
+
+.menu_second-level_show{
+  visibility: hidden;
+}
+
+.menu_single .menu_second-level_show {
+  text-align:left;
+  position: absolute;
+  top: 15px;
+  width: 150px;
+  background: rgba(0,0,0,0.8);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.menu_single:hover .menu_second-level_show {
+  top: 15px;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* ランキングページ */
+.rank_page{
+  width:660px;
+  margin:0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+}
+.small_like{
+  float:left;
+  margin-left:10px;
+  line-height: 18px;
+}
+
+.fa-heart,.small-count{
+  font-size: 12px;
+}
+
+strong{
+  font-size:17px;
+}
+
+.rank-image{
+  height:43px;
+  margin-right:25px;
+}
+
+.rank-under-4{
+  margin-right:25px;
+  width:43px;
+  height:43px;
+  display:inline-block;
+  text-align:center;
+  line-height: 43px;
+  color: #5f6769;
+  border-radius: 50%;
+}
+
+
+/* シェアボタン */
+.facebook {
+  background-color: #2e4a88;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 20px;
+  &:hover {
+    opacity: .8;
+    color:white;
+  }
+}
+
+.twitter {
+  background-color: #008DDE;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 15px;
+  margin:30px 0;
+  &:hover {
+    opacity: .8;
+    color:white;
+  }
+}
+
+.slack {
+  background-color: #9401ff;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 15px;
+  margin-top:30px;
+  &:hover {
+    opacity: .8;
+    color:white;
+  }
+}
