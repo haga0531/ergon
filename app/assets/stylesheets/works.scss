@@ -17,7 +17,7 @@
     width: 100%;
     margin: 2px 0;
     padding: 0.3em;
-    padding-left: 40px;
+    padding-left: 10px;
     transition: 0.3s;
     border: 1px solid #1b2538;
     border-radius: 4px;
@@ -222,30 +222,24 @@ input[readonly] {
 
 .raised{
   display: inline-block;
-  background-color: #26a69b;/*背景色*/
-  color: #FFF;/*文字色*/
-  font-size: 1em;/*文字サイズ*/
+  background-color: #26a69b;
+  color: #FFF;
+  font-size: 1em;
   line-height: 1;
   text-decoration: none;
-  letter-spacing: 0.05em;/*字間*/
-  padding: 0.2em 1em;/*ボタン内の余白*/
+  letter-spacing: 0.05em;
+  padding: 0.2em 1em;
   margin-bottom: 10px;
-  border-radius: 3px;/*角の丸み*/
-    cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);/*影*/
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   -webkit-tap-highlight-color: transparent;
-  transition: .3s ease-out;/*変化を緩やかに*/
+  transition: .3s ease-out;
   &:hover{
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
-  }
-  a {
-    color: white;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
     text-decoration:none;
-    &:hover{
-      text-decoration:none;
-      color: white;
-      opacity: .5;
-    }
+    color: white;
+    opacity: .8;
   }
 }
 
@@ -287,6 +281,13 @@ input[readonly] {
   opacity: 1;
 }
 
+.auther a{
+  color:#212529;
+  &:hover{
+    color:#212529;
+    opacity: .8;
+  }
+}
 
 /* ランキングページ */
 .rank_page{

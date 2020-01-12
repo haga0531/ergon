@@ -94,7 +94,7 @@
 		<span>
 		   <%= @work.created_at.strftime('%Y/%m/%d') %>
 		</span>
-		<P>作成者 : <%= link_to @work.user.name,user_path(@work.user) %></P>
+		<P>作成者 : <span class="auther"><%= link_to @work.user.name,user_path(@work.user) %></span></P>
 		<% unless params[:tag_name] %>
 		<h2 class="workShowH3">使用技術</h2>
 		<div class="top_area">

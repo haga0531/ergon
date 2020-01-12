@@ -4,9 +4,8 @@
 		<p class="user_name"><%= current_user.name %></p>
 		<P class="user_introduction"><%= @user.introduction %></P>
 		<% if @user == current_user %>
-			<%=link_to edit_user_path(current_user) do %>
-				<span class="raised user_edit"><i class="fas fa-user-edit"></i></span>
-			<% end %>
+			<a class="modal-open" data-target="con3"><span class="raised user_edit modal-link"><i class="fas fa-user-edit"></i></span></a>
+                  <%= render 'field/edit_user' %>
 		<% end %>
 	</div>
 	<hr>
