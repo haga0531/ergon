@@ -1,22 +1,22 @@
 <% if user_signed_in? %>
   <% if work.like_user(current_user.id) %>
     <%= button_to work_like_path(work), class: "fav", method: :delete, remote: true do %>
-      <i class="fas fa-heart"></i>
-      <span>
+      <span class="fav-set">
+        <i class="fas fa-heart"></i>
         <%= work.likes_count %>
       </span>
     <% end %>
   <% else %>
     <%= button_to work_like_path(work), class: "fav", remote: true do %>
-      <i class="far fa-heart"></i>
-      <span>
+      <span class="fav-set">
+        <i class="far fa-heart"></i>
         <%= work.likes_count %>
       </span>
     <% end %>
   <% end %>
 <% else %>
-  <i class="far fa-heart"></i>
-  <span>
+  <span class="fav-set">
+    <i class="far fa-heart"></i>
     <%= work.likes_count %>
   </span>
 <% end %>

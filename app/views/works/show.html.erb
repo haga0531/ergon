@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="col-md-1">
-		<span id="work-<%= @work.id %>-like">
+	<div class="col-md-1 clearfix">
+		<span id="work-<%= @work.id %>-like" class="fav-left">
 		    <%= render 'likes/likes', work: @work, like: @like %>
 		</span>
-		<div id='sosyal'>
+		<div id='sosyal' class="sosyal-right">
 		   <%= link_to  "https://twitter.com/share?url=#{request.url}&text=%20%23Ergon%20#{@work.title}", class: 'twitter', title: 'Twitter', target: '_blank' do%>
 		   	<i class="fab fa-twitter"></i>
 		   <% end %>
@@ -38,7 +38,7 @@
 						</span>
 					<% end %>
 				</div>
-				<div>
+				<div class="work_image">
 					<%= attachment_image_tag @work, :image, :fill, 620, 320,fallback: "no_image.jpg", size:'620x320', format: 'jpeg' %>
 				</div>
 				<div class="clearfix">
@@ -51,7 +51,7 @@
 				<hr>
 				<div class="workShowYoutube">
 					<h3 class="workShowH3"><i class="fab fa-youtube"></i> 紹介動画</h3>
-					<div>
+					<div class="work_youtube">
 						<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 				</div>
