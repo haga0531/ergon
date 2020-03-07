@@ -3,8 +3,10 @@ class WorksController < ApplicationController
 
 	def index
 		@works = Work.all.order(created_at: :desc).page(params[:page])
-		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(8).pluck(:work_id))
+		@all_ranks = Work.find(Like.group(:work_id).order('count(work_id) desc').limit(10).pluck(:work_id))
 		@like = Like.find_by(user_id: current_user.id, work_id: params[:id]) if user_signed_in?
+		@works_yesterday = Work.where(created_at: 1.day.ago.all_day)
+		@works_today = Work.where(created_at: Date.today.all_day)
 	end
 
 	def tag_index
