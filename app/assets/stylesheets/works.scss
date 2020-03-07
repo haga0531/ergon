@@ -81,7 +81,6 @@ input[readonly] {
 
 /* 作品一覧 */
 .mv{
-  background-image:image-url("/assets/mv.png");
   height:650px;
   background-size:cover;
   position:relative;
@@ -127,6 +126,28 @@ input[readonly] {
 }
 .top-h2-new{
   margin-top:30px;
+}
+
+.skill-area {
+  text-align: center;
+}
+
+.tag_link {
+  margin: 0 8px 18px;
+  display: inline-block;
+}
+
+.tag_text {
+  display: inline-block;
+  background-color: #f8f8f8;
+  padding: 10px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #1f1f1f;
+  &:hover {
+    text-decoration: none;
+    color: #1f1f1f;
+  }
 }
 
 #work_lists,.work_lists{

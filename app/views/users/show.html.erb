@@ -5,7 +5,7 @@
 		<P class="user_introduction"><%= @user.introduction %></P>
 		<% if @user == current_user %>
 			<a class="modal-open" data-target="con3"><span class="raised user_edit modal-link"><i class="fas fa-user-edit"></i></span></a>
-                  <%= render 'field/edit_user' %>
+                  <%= render 'field/edit_user', user:@user %>
 		<% end %>
 	</div>
 	<hr>

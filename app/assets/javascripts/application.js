@@ -11,13 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+
 
 //= require activestorage
 
 //= require_tree .
 //= require popper
 //= require bootstrap-sprockets
+
+//= require rails-ujs
+//= require bxslider
 
 
 // views/users/showにあるタブ部分
@@ -81,5 +84,14 @@ $(function(){
 
       $(modal).css({'left': x + 'px','top': y + 'px'});
     }
+  });
+});
+
+
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+    moveSlides: 4,
+    maxSlides: 6,
+    slideWidth: 220,
   });
 });

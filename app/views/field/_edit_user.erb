@@ -3,28 +3,28 @@
 	<p><a class="modal-close"><i class="far fa-times-circle"></i></i></a></p>
 		<div class="text-align">
 	    <h2>新規登録</h2>
-		<form class="edit_user" id="edit_user_26" enctype="multipart/form-data" action="/users/26" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="+lhGXTgZ+iXCGho2eHGLiEowN5cAA42sexZ9RJSi9FDZvBxM3KGWnWZFKrCpSeERsAWLSmJXfGBmiltC4ZHACg==">
+		<%= form_for(@user) do |f| %>
 
 			<div class="field">
 				<p>ニックネーム</p>
-				<input type="text" value="ggggg" name="user[name]" id="user_name">
+				<%= f.text_field :name %>
 			</div>
 
 			<div class="field">
 				<p>プロフィール</p>
-				<input placeholder="簡単な自己紹介をお願いします" type="text" name="user[introduction]" id="user_introduction">
+				<%= f.text_area :introduction %>
 			</div>
 
-			<div class="field">
-				<p>アイコン</p>
-				<span class="btn btn-info btn-file">
-					画像を選択<input value="{}" data-reference="ef7dafa930b13ca28b85d3c52154ea82" type="hidden" name="user[image]"><input data-reference="ef7dafa930b13ca28b85d3c52154ea82" include_hidden="false" type="file" name="user[image]" id="user_image">
-				</span>
+			<p>アイコン</p>
+			<span class="btn btn-info btn-file">
+				画像を選択<%= f.attachment_field :image %>
+			</span>
+
+			<div class="actions">
+				<%= f.submit "更新する", class: "btn btn-sign" %>
 			</div>
 
-			<input type="submit" name="commit" value="更新する" class="btn btn-sign" data-disable-with="更新する">
-
-		</form>
+		<% end %>
 		</div>
 	</div>
 </div>
