@@ -3,21 +3,21 @@
     <%= button_to work_like_path(work), class: "fav", method: :delete, remote: true do %>
       <span class="fav-set">
         <i class="fas fa-heart"></i>
-        <%= work.likes.count %>
       </span>
+      <span class="fav-count"><%= work.likes.count %></span>
     <% end %>
   <% else %>
     <%= button_to work_like_path(work), class: "fav", remote: true do %>
       <span class="fav-set">
         <i class="far fa-heart"></i>
-        <%= work.likes.count %>
       </span>
+      <span class="fav-count"><%= work.likes.count %></span>
     <% end %>
   <% end %>
 <% else %>
   <span class="fav-set">
     <i class="far fa-heart"></i>
-    <%= work.likes.count %>
   </span>
+  <span class="fav-count"><%= work.likes.count %></span>
 <% end %>
 

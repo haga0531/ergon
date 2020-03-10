@@ -4,17 +4,14 @@
 
 
 /* いいねボタン */
+// ボタンのデフォルトのcssを消す
 .fav{
-  display: inline;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 50%;
-  color:red;
-  width: 50px;
-  height: 50px;
-  &:hover{
-    opacity: .8;
-  }
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
 }
 
 .fav-left{
@@ -31,4 +28,33 @@
 .description{
   width:620px;
   display:block;
+}
+
+.fav-set {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 45px;
+  text-align: center;
+  color: red;
+  background-color: white;
+  border: 1px solid lightgray;
+  &:hover{
+    opacity: .8;
+  }
+}
+
+.fav-count {
+  text-align: center;
+  width: 43px;
+  display: block;
+  background-color: white;
+  margin-top: 5px;
+  border-radius: 3px;
+  padding: 1px 3px;
+  color: gray;
+  border: 1px solid lightgray;
+  font-size: 13px;
 }
