@@ -23,36 +23,28 @@
 //= require bxslider
 
 
-// views/users/showにあるタブ部分
+// プロフィールページのタブ
 $(function() {
-  // ①タブをクリックしたら発動
   $('.tab li').click(function() {
-    // ②クリックされたタブの順番を変数に格納
     var index = $('.tab li').index(this);
-    // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
     $('.tab li').removeClass('active');
-    // ④クリックされたタブにクリック済みデザインを適用する
     $(this).addClass('active');
-    // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
     $('.area ul').removeClass('show').eq(index).addClass('show');
   });
 });
 
 
-
 //ヘッダー追従
 $(function () {
-    var offset = $('#headerContainer').offset();
-    $(window).scroll(function () {
-
-        if ($(this).scrollTop() > offset.top) {
-            $('#headerContainer').addClass('is-fixed');
-        } else {
-            $('#headerContainer').removeClass('is-fixed');
-        }
-    });
+  var offset = $('#headerContainer').offset();
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > offset.top) {
+        $('#headerContainer').addClass('is-fixed');
+    } else {
+        $('#headerContainer').removeClass('is-fixed');
+    }
+  });
 });
-
 
 //モーダル部分(ログイン画面、投稿画面)
 $(function(){
@@ -87,7 +79,7 @@ $(function(){
   });
 });
 
-
+// 日付ごと投稿の水平スライド
 $(document).ready(function(){
   $('.bxslider').bxSlider({
     moveSlides: 4,
