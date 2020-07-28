@@ -66,7 +66,7 @@ class WorksController < ApplicationController
 	def about_ergon
     end
 
-    def about_auther
+    def about_author
     end
 
     def contact

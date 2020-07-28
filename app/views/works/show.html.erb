@@ -48,6 +48,7 @@
 				<div class="workShowDescription">
 					<p class="description"><%= @work.description %></p>
 				</div>
+				<% if @work.youtube_url? %>
 				<hr>
 				<div class="workShowYoutube">
 					<h3 class="workShowH3"><i class="fab fa-youtube"></i> 紹介動画</h3>
@@ -55,6 +56,7 @@
 						<iframe width="620" height="320" src="https://www.youtube.com/embed/<%= @work.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 				</div>
+				<% end %>
 			</div>
 		</div>
 		<hr>

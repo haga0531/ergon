@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get '/tag/:tag_name',to:"works#tag_index",as: 'tag'
   get '/about/ergon',to: "works#about_ergon"
   get '/contact',to: "works#contact"
-  get '/about/auther',to: "works#about_auther"
+  get '/about/auther',to: "works#about_author"
 end
